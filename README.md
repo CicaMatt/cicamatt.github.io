@@ -10,17 +10,18 @@
   <meta property="og:title" content="Matteo Cicalese – Backend Software Engineer" />
   <meta property="og:description" content="Esperienze, studi, progetti, pubblicazioni e contatti." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="" />
+  <meta property="og:url" content="https://YOURUSERNAME.github.io/" />
   
   <style>
     :root{
-      --bg: #fff;
+      --bg: #ffffff;
       --fg: #0b0b0b;
       --muted: #6b7280;
       --card: #f7f7f7;
       --accent: #0b72ff;
       --ring: rgba(11,114,255,.25);
       --border: #e5e7eb;
+      --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
     }
     @media (prefers-color-scheme: dark){
       :root{
@@ -29,51 +30,62 @@
         --muted: #9aa0aa;
         --card: #121212;
         --accent: #60a5fa;
-        --ring: rgba(96,165,250,.25);
+        --ring: rgba(96,165,250,.35);
         --border: #1f2937;
+        --shadow: 0 1px 2px rgba(0,0,0,.25), 0 8px 24px rgba(0,0,0,.35);
       }
     }
-    *{box-sizing:border-box}
+
+    /* Base */
+    *,*::before,*::after{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background:var(--bg); color:var(--fg);
-      line-height:1.6;
+      background:var(--bg); color:var(--fg); line-height:1.6;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
-    .container{max-width:960px; margin:0 auto; padding:1.25rem;}
+    img{max-width:100%; height:auto; display:block}
+    a{color:inherit}
+    a:hover{color:var(--accent)}
+
+    /* Typography */
+    :where(h1,h2,h3,h4){line-height:1.25}
+    :where(h1){font-size:clamp(1.6rem, 2.2vw + 1rem, 2.4rem); margin:.25rem 0}
+    :where(h2){font-size:clamp(1.15rem, 1.1vw + .9rem, 1.5rem); margin:1.75rem 0 1rem}
+    :where(h3){font-size:1.05rem; margin:1rem 0 .5rem}
+    p, li{max-width:75ch}
+    ul{padding-left:1.2rem}
+
+    /* Layout */
+    .container{max-width:960px; margin:0 auto; padding:1.25rem}
     header{
       position:sticky; top:0; backdrop-filter:saturate(180%) blur(8px);
-      background: color-mix(in oklab, var(--bg) 85%, transparent);
+      background: var(--bg); /* removed color-mix for wider support */
       border-bottom:1px solid var(--border);
-      z-index:50;
+      z-index:10;
     }
-    .nav{display:flex; gap:.75rem; align-items:center; justify-content:space-between; padding:.75rem 0}
+    .nav{display:flex; gap:.75rem; align-items:center; justify-content:space-between; padding:.6rem 0}
     .brand{display:flex; align-items:center; gap:.75rem}
     .avatar{width:44px; height:44px; border-radius:50%; background:var(--card); display:inline-block; border:1px solid var(--border)}
     .name{font-weight:700; letter-spacing:.2px}
     .role{color:var(--muted); font-size:.95rem}
     nav a{color:var(--muted); text-decoration:none; padding:.4rem .6rem; border-radius:.6rem;}
     nav a:hover, nav a:focus{color:var(--fg); outline:2px solid var(--ring)}
+
     main{padding-top:1rem}
 
-    h1{font-size:clamp(1.6rem, 2.5vw + 1rem, 2.4rem); line-height:1.2; margin:.25rem 0}
-    h2{font-size:clamp(1.15rem, 1.2vw + .9rem, 1.5rem); margin:2.2rem 0 1rem}
-    h3{font-size:1.05rem; margin:1rem 0 .5rem}
-    p, li{max-width:75ch}
-
     .grid{display:grid; gap:1rem}
-    @media(min-width:800px){ .grid{grid-template-columns: 2fr 1fr; gap:1.5rem} }
+    @media(min-width:800px){ .grid{grid-template-columns: 2fr 1fr; gap:1.25rem} }
 
-    .card{background:var(--card); border:1px solid var(--border); border-radius:1rem; padding:1rem}
-
+    .card{background:var(--card); border:1px solid var(--border); border-radius:1rem; padding:1rem; box-shadow:var(--shadow)}
     .list{display:grid; gap:.75rem}
-    .item{display:grid; gap:.2rem}
+    .item{display:grid; gap:.25rem}
     .meta{color:var(--muted); font-size:.95rem}
 
     .tags{display:flex; flex-wrap:wrap; gap:.4rem}
     .tag{font-size:.85rem; padding:.25rem .55rem; border-radius:999px; background:transparent; border:1px dashed var(--border)}
 
-    .pill{display:inline-flex; align-items:center; gap:.5rem; padding:.5rem .75rem; border:1px solid var(--border); border-radius:.75rem; text-decoration:none; color:inherit}
+    .pill{display:inline-flex; align-items:center; gap:.5rem; padding:.5rem .75rem; border:1px solid var(--border); border-radius:.75rem; text-decoration:none; color:inherit; box-shadow:var(--shadow)}
     .pill:hover{border-color:var(--fg)}
 
     .footer{margin:3rem 0 2rem; color:var(--muted); font-size:.95rem}
@@ -82,12 +94,17 @@
     .section-nav a{border:1px solid var(--border); border-radius:.6rem; padding:.35rem .6rem; color:var(--muted); text-decoration:none}
     .section-nav a:hover{color:var(--fg)}
 
-    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+    /* Anchor offset for sticky header */
+    :target{scroll-margin-top:80px}
+    section[id]{scroll-margin-top:80px}
+
+    /* Long words wrap better on mobile */
+    *{word-wrap:break-word; overflow-wrap:break-word}
 
     /* Print */
     @media print{
       header, .section-nav, .actions, .footer{display:none}
-      .card{border:0; background:transparent; padding:0}
+      .card{border:0; background:transparent; padding:0; box-shadow:none}
       body{background:white; color:black}
     }
   </style>
@@ -138,7 +155,7 @@
         <a class="pill" href="mailto:matteocicalese01@gmail.com">📧 Email</a>
         <a class="pill" href="tel:+393928139527">📞 Chiama</a>
         <a class="pill" href="https://www.linkedin.com/in/cicamatt/" target="_blank" rel="noopener">in LinkedIn</a>
-        <a class="pill" href="https://github.com/cicamatt" target="_blank" rel="noopener">{} GitHub</a>
+        <a class="pill" href="https://github.com/cicamatt" target="_blank" rel="noopener">GitHub</a>
         <a class="pill" href="Curriculum.pdf" download>⬇️ Scarica CV (PDF)</a>
       </div>
       <div class="section-nav" style="margin-top:.75rem">
