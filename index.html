@@ -42,7 +42,7 @@ permalink: /
 
     /* Base */
     *,*::before,*::after{box-sizing:border-box}
-    /* MODIFICA: Rimosso il segnaposto non valido $1 */
+    /* CORREZIONE: Rimosso $1 non valido */
     html,body{margin-left:0 !important; padding-left:0 !important;}
     body{
       margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
@@ -63,22 +63,23 @@ permalink: /
 
     /* Layout */
     .container{max-width:960px; margin:0 auto; padding:1.25rem}
-    /* MODIFICA: Rimosso il segnaposto non valido $1 */
+    /* CORREZIONE: Rimosso $1 non valido */
     header{left:0;} 
     .nav{display:flex; gap:.75rem; align-items:center; justify-content:space-between; padding:.6rem 0}
     .brand{display:flex; align-items:center; gap:.75rem}
-    .avatar{width:44px; height:44px; border-radius:50%; background:var(--card); display:inline-block; border:1px solid var(--border)}
+    /* MODIFICA AVATAR: Ora gestisce l'immagine */
+    .avatar{width:44px; height:44px; border-radius:50%; display:inline-block; border:1px solid var(--border); object-fit: cover;}
     .name{font-weight:700; letter-spacing:.2px}
     .role{color:var(--muted); font-size:.95rem}
     nav a{color:var(--muted); text-decoration:none; padding:.4rem .6rem; border-radius:.6rem;}
     nav a:hover, nav a:focus{color:var(--fg); outline:2px solid var(--ring)}
 
-    /* MODIFICA: Aggiunto spazio sopra le sezioni per una migliore separazione */
     main{padding-top:1rem}
+    
+    /* MIGLIORAMENTO SPACING: Aggiunto spazio tra le sezioni principali */
     main section + section{
-        margin-top: 1.5rem; /* Aggiunge un margine superiore a tutte le sezioni che NON sono la prima */
+        margin-top: 1.5rem;
     }
-    /* Assicura che l'area 'Esperienze' e 'Competenze chiave' non siano troppo attaccate */
     .grid {
         margin-top: 1.5rem;
     }
@@ -86,15 +87,13 @@ permalink: /
         margin-top: 1.5rem;
     }
 
-
     .grid{display:grid; gap:1rem}
     @media(min-width:800px){ .grid{grid-template-columns: 2fr 1fr; gap:1.25rem} }
 
     .card{background:var(--card); border:1px solid var(--border); border-radius:1rem; padding:1rem; box-shadow:var(--shadow)}
     .list{display:grid; gap:.75rem}
-    /* MODIFICA: Aggiunto un piccolo margine inferiore agli elementi della lista per uniformità */
+    /* MIGLIORAMENTO SPACING LISTA: Separazione pulita tra voci */
     .item{display:grid; gap:.25rem; padding-bottom: .75rem; border-bottom: 1px dashed var(--border);}
-    /* Rimuovi il bordo inferiore all'ultimo elemento della lista di ogni card per pulizia */
     .list .item:last-child {
         border-bottom: none;
         padding-bottom: 0;
@@ -161,7 +160,7 @@ permalink: /
   <header>
     <div class="container nav">
       <div class="brand">
-        <span class="avatar" aria-hidden="true"></span>
+        <img src="profilo.jpg" alt="Foto profilo di Matteo Cicalese" class="avatar">
         <div>
           <div class="name">Matteo Cicalese</div>
           <div class="role">Backend Software Engineer</div>
@@ -189,11 +188,7 @@ permalink: /
         <a class="pill" href="https://github.com/cicamatt" target="_blank" rel="noopener">GitHub</a>
         <a class="pill" href="Curriculum.pdf" download>⬇️ Scarica CV (PDF)</a>
       </div>
-      <div class="section-nav" style="margin-top:.75rem">
-        <a href="#esperienze">Esperienze</a><a href="#studi">Studi</a><a href="#progetti">Progetti</a>
-        <a href="#pubblicazioni">Pubblicazioni</a><a href="#competenze">Competenze</a><a href="#contatti">Contatti</a>
-      </div>
-    </section>
+      </section>
 
     <div class="grid">
       <section id="esperienze" class="card" aria-labelledby="esperienze-h">
