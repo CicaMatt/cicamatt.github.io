@@ -2,14 +2,7 @@
 
 [cite_start]**Backend Software Engineer** [cite: 2]
 
-<p>
-  <a href="mailto:tua-email@esempio.com">Email</a> | 
-  <a href="https://linkedin.com/in/tuo-profilo" target="_blank">LinkedIn</a> | 
-  <a href="https://github.com/tuo-username" target="_blank">GitHub</a> | 
-  <a href="Curriculum.pdf" download><strong>Scarica CV (PDF)</strong></a>
-  <br>
-  Nocera Inferiore (SA)
-</p>
+[cite_start][Email](mailto:tua-email@esempio.com) [cite: 5] | [cite_start][LinkedIn](https://linkedin.com/in/tuo-profilo) [cite: 3] | [cite_start][GitHub](https://github.com/tuo-username) [cite: 4] | [cite_start]Nocera Inferiore (SA) [cite: 39]
 
 ---
 
