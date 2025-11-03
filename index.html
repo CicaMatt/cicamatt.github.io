@@ -23,6 +23,7 @@ permalink: /
       --muted: #6b7280;
       --card: #f7f7f7;
       --accent: #0b72ff;
+      --accent-2: #6aa8ff;
       --ring: rgba(11,114,255,.25);
       --border: #e5e7eb;
       --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
@@ -34,6 +35,7 @@ permalink: /
         --muted: #9aa0aa;
         --card: #121212;
         --accent: #60a5fa;
+        --accent-2: #93c5fd;
         --ring: rgba(96,165,250,.35);
         --border: #1f2937;
         --shadow: 0 1px 2px rgba(0,0,0,.25), 0 8px 24px rgba(0,0,0,.35);
@@ -53,8 +55,8 @@ permalink: /
     a:hover{color:var(--accent)}
 
     /* Typography */
-    :where(h1,h2,h3,h4){line-height:1.25}
-    :where(h1){font-size:clamp(1.6rem, 2.2vw + 1rem, 2.4rem); margin:.25rem 0}
+    :where(h1,h2,h3,h4){line-height:1.15}
+    :where(h1){font-size:clamp(2rem, 3.2vw + 1rem, 3rem); margin:0}
     :where(h2){font-size:clamp(1.15rem, 1.1vw + .9rem, 1.5rem); margin:1.75rem 0 1rem}
     :where(h3){font-size:1.05rem; margin:1rem 0 .5rem}
     p, li{max-width:75ch}
@@ -82,9 +84,6 @@ permalink: /
     .list .item:last-child { border-bottom: none; padding-bottom: 0; }
     .meta{color:var(--muted); font-size:.95rem}
 
-    .pill{display:inline-flex; align-items:center; gap:.5rem; padding:.5rem .75rem; border:1px solid var(--border); border-radius:.75rem; text-decoration:none; color:inherit; box-shadow:var(--shadow)}
-    .pill:hover{border-color:var(--fg)}
-
     .footer{margin:3rem 0 2rem; color:var(--muted); font-size:.95rem}
 
     .section-nav{display:flex; flex-wrap:wrap; gap:.4rem}
@@ -97,7 +96,7 @@ permalink: /
     *{word-wrap:break-word; overflow-wrap:break-word}
 
     @media print{
-      header, .section-nav, .actions, .footer{display:none}
+      header, .section-nav, .footer, .cta{display:none}
       .card{border:0; background:transparent; padding:0; box-shadow:none}
       body{background:white; color:black}
     }
@@ -114,50 +113,83 @@ permalink: /
       border-width: 0;
     }
 
-    /* --- HERO: header grafico --- */
+    /* --- HERO --- */
     .hero{
       text-align:center;
-      padding:2.25rem 1.25rem 1.5rem;
+      padding:2.25rem 1.25rem 1.75rem;
       position:relative;
       overflow:hidden;
       background:
         radial-gradient(1200px 300px at 50% -10%, rgba(11,114,255,.08), transparent 60%),
         var(--card);
     }
-    .hero h1{
-      margin:0 0 .75rem;
-      font-size:clamp(2rem, 3.2vw + 1rem, 3rem);
-      line-height:1.1;
-      letter-spacing:.2px;
-      font-weight:800;
-    }
     .hero .name{
       background: linear-gradient(90deg, var(--fg), var(--accent));
-      -webkit-background-clip:text;
-      background-clip:text;
+      -webkit-background-clip:text; background-clip:text;
       -webkit-text-fill-color: transparent;
+      font-weight:800;
+      letter-spacing:.2px;
     }
-    .hero .dash{ opacity:.5; padding:0 .35ch }
     .hero .role{
+      margin:.35rem auto 0;
+      font-size:clamp(1.05rem, 1.1vw + .9rem, 1.4rem);
       color:var(--muted);
       font-weight:600;
     }
     .hero .underline{
       width:min(220px, 50%);
       height:3px;
-      margin:.25rem auto 0;
+      margin:.6rem auto 0;
       border-radius:999px;
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
       opacity:.6;
     }
-    .actions{
-      display:flex;
-      gap:.5rem;
-      flex-wrap:wrap;
-      margin-top:1rem;
-      justify-content:center;       /* centrati */
+
+    /* --- CTA (pulsanti separati) --- */
+    .cta{
+      text-align:center;
+      padding:1rem;
+    }
+    .btns{
+      display:flex; flex-wrap:wrap; justify-content:center; gap:.6rem;
+      margin-top:.25rem;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.7rem .95rem; border-radius:.8rem;
+      border:1px solid var(--border);
+      text-decoration:none; font-weight:600; font-size:.98rem;
+      transition: transform .08s ease, box-shadow .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+      box-shadow: var(--shadow);
+      will-change: transform;
+    }
+    .btn:hover{ transform: translateY(-1px) }
+    .btn:active{ transform: translateY(0) }
+
+    .btn-primary{
+      color:white;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-color: transparent;
+    }
+    .btn-primary:hover{ filter:brightness(1.05) }
+    .btn-outline{
+      background: transparent;
+      color:var(--fg);
+    }
+    .btn-outline:hover{
+      border-color:var(--fg);
+    }
+    .btn-ghost{
+      background: transparent;
+      color:var(--muted);
+      border-style:dashed;
+    }
+    .btn-ghost:hover{
+      color:var(--fg);
+      border-color:var(--fg);
     }
   </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -191,19 +223,22 @@ permalink: /
   </header>
 
   <main id="inizio" class="container">
-    <section class="card hero">
-      <h1>
-        <span class="name">Matteo Cicalese</span>
-        <span class="dash">—</span>
-        <span class="role">Backend Software Engineer</span>
-      </h1>
+    <!-- HERO con nome e ruolo separati -->
+    <section class="card hero" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="name">Matteo Cicalese</h1>
+      <p class="role" aria-label="Ruolo">Backend Software Engineer</p>
       <div class="underline" aria-hidden="true"></div>
-      <div class="actions">
-        <a class="pill" href="mailto:matteocicalese01@gmail.com">📧 Email</a>
-        <a class="pill" href="tel:+393928139527">📞 Chiama</a>
-        <a class="pill" href="https://www.linkedin.com/in/cicamatt/" target="_blank" rel="noopener">in LinkedIn</a>
-        <a class="pill" href="https://github.com/cicamatt" target="_blank" rel="noopener">GitHub</a>
-        <a class="pill" href="Curriculum.pdf" download>⬇️ Scarica CV (PDF)</a>
+    </section>
+
+    <!-- CTA separata con pulsanti migliorati -->
+    <section class="card cta" aria-labelledby="cta-title">
+      <h2 id="cta-title" class="sr-only">Azioni principali</h2>
+      <div class="btns">
+        <a class="btn btn-primary" href="Curriculum.pdf" download>⬇️ Scarica CV (PDF)</a>
+        <a class="btn btn-outline" href="mailto:matteocicalese01@gmail.com">📧 Email</a>
+        <a class="btn btn-outline" href="tel:+393928139527">📞 Chiama</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/cicamatt/" target="_blank" rel="noopener">in LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/cicamatt" target="_blank" rel="noopener">GitHub</a>
       </div>
     </section>
 
@@ -307,9 +342,9 @@ permalink: /
     <section id="contatti" class="card" aria-labelledby="contatti-h">
       <h2 id="contatti-h">Contatti</h2>
       <p>
-        <a class="pill" href="mailto:matteocicalese01@gmail.com">matteocicalese01@gmail.com</a>
-        <a class="pill" href="tel:+393928139527">+39 392 813 9527</a>
-        <a class="pill" href="https://maps.app.goo.gl/pCSZWt5eJbz3mRFs9" target="_blank" rel="noopener">Nocera Inferiore (SA)</a>
+        <a class="btn btn-outline" href="mailto:matteocicalese01@gmail.com">matteocicalese01@gmail.com</a>
+        <a class="btn btn-outline" href="tel:+393928139527">+39 392 813 9527</a>
+        <a class="btn btn-ghost" href="https://maps.app.goo.gl/pCSZWt5eJbz3mRFs9" target="_blank" rel="noopener">Nocera Inferiore (SA)</a>
       </p>
       <p class="meta">Disponibile a viaggi e trasferimenti.</p>
     </section>
