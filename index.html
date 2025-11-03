@@ -28,6 +28,10 @@ permalink: /
       --ring: rgba(11,114,255,.25);
       --border: #e5e7eb;
       --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
+
+      /* NUOVO: larghezza contenuto più ampia */
+      --container: 1200px;
+      --card-pad: 1.25rem;
     }
     @media (prefers-color-scheme: dark){
       :root{
@@ -65,7 +69,7 @@ permalink: /
     ul{padding-left:1.2rem}
 
     /* Layout */
-    .container{max-width:960px; margin:0 auto; padding:1.25rem}
+    .container{max-width:var(--container); margin:0 auto; padding:1.25rem}
     header{left:0;} 
     .nav{
       display:flex; gap:.75rem; align-items:center; justify-content:center;
@@ -77,12 +81,24 @@ permalink: /
     main{padding-top:1rem}
     main section + section{ margin-top: 1.5rem; }
 
-    .grid{display:grid; gap:1rem}
-    @media(min-width:800px){ .grid{grid-template-columns: 2fr 1fr; gap:1.25rem} }
+    .grid{display:grid; gap:1.1rem}
+    /* Breakpoint spostato per schermi ampi */
+    @media(min-width:1024px){ .grid{grid-template-columns: 2fr 1fr; gap:1.35rem} }
 
-    .card{background:var(--card); border:1px solid var(--border); border-radius:1rem; padding:1rem; box-shadow:var(--shadow)}
-    .list{display:grid; gap:.75rem}
-    .item{display:grid; gap:.25rem; padding-bottom: .75rem; border-bottom: 1px dashed var(--border);}
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:1rem;
+      padding:var(--card-pad);
+      box-shadow:var(--shadow)
+    }
+    /* un filo di aria in più sulle card grandi */
+    @media(min-width:1024px){
+      .card{ padding: calc(var(--card-pad) + .25rem); }
+    }
+
+    .list{display:grid; gap:.85rem}
+    .item{display:grid; gap:.35rem; padding-bottom:.85rem; border-bottom: 1px dashed var(--border);}
     .list .item:last-child { border-bottom: none; padding-bottom: 0; }
     .meta{color:var(--muted); font-size:.95rem}
 
@@ -122,7 +138,7 @@ permalink: /
       position:relative;
       overflow:hidden;
       background:
-        radial-gradient(1200px 300px at 50% -10%, rgba(11,114,255,.08), transparent 60%),
+        radial-gradient(1600px 380px at 50% -10%, rgba(11,114,255,.08), transparent 60%),
         var(--card);
     }
     .hero .name{
@@ -139,7 +155,7 @@ permalink: /
       font-weight:600;
     }
     .hero .underline{
-      width:min(220px, 50%);
+      width:min(320px, 60%);   /* un po' più larga */
       height:3px;
       margin:.6rem auto 0;
       border-radius:999px;
@@ -147,14 +163,14 @@ permalink: /
       opacity:.6;
     }
 
-    /* --- CTA (pulsanti separati) --- */
+    /* --- CTA --- */
     .cta{ text-align:center; padding:1rem; }
-    .btns{ display:flex; flex-wrap:wrap; justify-content:center; gap:.6rem; margin-top:.25rem; }
+    .btns{ display:flex; flex-wrap:wrap; justify-content:center; gap:.7rem; margin-top:.25rem; }
     .btn{
       display:inline-flex; align-items:center; gap:.5rem;
-      padding:.7rem .95rem; border-radius:.8rem;
+      padding:.75rem 1rem; border-radius:.9rem;
       border:1px solid var(--border);
-      text-decoration:none; font-weight:600; font-size:.98rem;
+      text-decoration:none; font-weight:600; font-size:1rem;
       transition: transform .08s ease, box-shadow .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
       box-shadow: var(--shadow);
       will-change: transform;
@@ -168,14 +184,14 @@ permalink: /
     .btn-ghost{ background: transparent; color:var(--muted); border-style:dashed; }
     .btn-ghost:hover{ color:var(--fg); border-color:var(--fg); }
 
-    /* --- BADGE associati agli h3 (al posto degli h5) --- */
+    /* --- BADGE per h3 --- */
     .with-badge{
-      display:flex; align-items:center; gap:.5rem; flex-wrap:wrap;
+      display:flex; align-items:center; gap:.6rem; flex-wrap:wrap;
       margin:1rem 0 .25rem;
     }
     .badge{
-      font-size:.8rem; line-height:1;
-      padding:.35rem .6rem; border-radius:.6rem;
+      font-size:.82rem; line-height:1;
+      padding:.38rem .62rem; border-radius:.6rem;
       border:1px solid var(--border);
       background:rgba(11,114,255,.06);
       color:var(--fg);
@@ -317,22 +333,6 @@ permalink: /
           <p>Piattaforma web per validazione, preprocessing e classificazione dataset con pipeline personalizzabile, sfruttando backend quantistici IBM.</p>
         </div>
       </div>
-    </section>
-
-    <!-- PUBBLICAZIONI -->
-    <section id="pubblicazioni" class="card" aria-labelledby="pubblicazioni-h">
-      <h2 id="pubblicazioni-h">Pubblicazioni</h2>
-      <ul>
-        <li>
-          <span>Automated Vulnerability Injection in Solidity Smart Contracts: A Mutation-Based Approach for Benchmark Development</span>
-          <span class="meta">— EASE 2025</span>
-        </li>
-        <li>
-          <span>Quantumoonlight: A Low-Code Platform to Experiment with Quantum Machine Learning</span>
-          <span class="meta">— ICSME 2022 Tool Demonstration Track · SoftwareX 2023</span>
-          · <a href="https://www.sciencedirect.com/science/article/pii/S235271102300095X" target="_blank" rel="noopener">doi</a>
-        </li>
-      </ul>
     </section>
 
     <!-- COMPETENZE -->
