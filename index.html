@@ -24,6 +24,7 @@ permalink: /
       --card: #f7f7f7;
       --accent: #0b72ff;
       --accent-2: #6aa8ff;
+      --success: #10b981;
       --ring: rgba(11,114,255,.25);
       --border: #e5e7eb;
       --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
@@ -36,6 +37,7 @@ permalink: /
         --card: #121212;
         --accent: #60a5fa;
         --accent-2: #93c5fd;
+        --success: #34d399;
         --ring: rgba(96,165,250,.35);
         --border: #1f2937;
         --shadow: 0 1px 2px rgba(0,0,0,.25), 0 8px 24px rgba(0,0,0,.35);
@@ -146,14 +148,8 @@ permalink: /
     }
 
     /* --- CTA (pulsanti separati) --- */
-    .cta{
-      text-align:center;
-      padding:1rem;
-    }
-    .btns{
-      display:flex; flex-wrap:wrap; justify-content:center; gap:.6rem;
-      margin-top:.25rem;
-    }
+    .cta{ text-align:center; padding:1rem; }
+    .btns{ display:flex; flex-wrap:wrap; justify-content:center; gap:.6rem; margin-top:.25rem; }
     .btn{
       display:inline-flex; align-items:center; gap:.5rem;
       padding:.7rem .95rem; border-radius:.8rem;
@@ -165,28 +161,32 @@ permalink: /
     }
     .btn:hover{ transform: translateY(-1px) }
     .btn:active{ transform: translateY(0) }
-
-    .btn-primary{
-      color:white;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      border-color: transparent;
-    }
+    .btn-primary{ color:white; background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-color: transparent; }
     .btn-primary:hover{ filter:brightness(1.05) }
-    .btn-outline{
-      background: transparent;
+    .btn-outline{ background: transparent; color:var(--fg); }
+    .btn-outline:hover{ border-color:var(--fg); }
+    .btn-ghost{ background: transparent; color:var(--muted); border-style:dashed; }
+    .btn-ghost:hover{ color:var(--fg); border-color:var(--fg); }
+
+    /* --- BADGE associati agli h3 (al posto degli h5) --- */
+    .with-badge{
+      display:flex; align-items:center; gap:.5rem; flex-wrap:wrap;
+      margin:1rem 0 .25rem;
+    }
+    .badge{
+      font-size:.8rem; line-height:1;
+      padding:.35rem .6rem; border-radius:.6rem;
+      border:1px solid var(--border);
+      background:rgba(11,114,255,.06);
       color:var(--fg);
+      white-space:nowrap;
     }
-    .btn-outline:hover{
-      border-color:var(--fg);
-    }
-    .btn-ghost{
-      background: transparent;
-      color:var(--muted);
-      border-style:dashed;
-    }
-    .btn-ghost:hover{
-      color:var(--fg);
-      border-color:var(--fg);
+    .badge.brand{ background:transparent; border-style:dashed; color:var(--muted); }
+    .badge.award{
+      background:rgba(16,185,129,.12);
+      border-color:rgba(16,185,129,.35);
+      color:var(--success);
+      font-weight:700;
     }
   </style>
 
@@ -223,14 +223,14 @@ permalink: /
   </header>
 
   <main id="inizio" class="container">
-    <!-- HERO con nome e ruolo separati -->
+    <!-- HERO -->
     <section class="card hero" aria-labelledby="hero-title">
       <h1 id="hero-title" class="name">Matteo Cicalese</h1>
       <p class="role" aria-label="Ruolo">Backend Software Engineer</p>
       <div class="underline" aria-hidden="true"></div>
     </section>
 
-    <!-- CTA separata con pulsanti migliorati -->
+    <!-- CTA -->
     <section class="card cta" aria-labelledby="cta-title">
       <h2 id="cta-title" class="sr-only">Azioni principali</h2>
       <div class="btns">
@@ -242,50 +242,62 @@ permalink: /
       </div>
     </section>
 
+    <!-- ESPERIENZE -->
     <section id="esperienze" class="card" aria-labelledby="esperienze-h">
       <h2 id="esperienze-h">Esperienze</h2>
       <div class="list">
         <div class="item">
-          <h3>Assegnista di Ricerca</h3>
-          <h5>Università degli Studi di Salerno</h5>
+          <div class="with-badge">
+            <h3 style="margin:0">Assegnista di Ricerca</h3>
+            <span class="badge brand" aria-label="Ente">🏛️ Università degli Studi di Salerno</span>
+          </div>
           <div class="meta">Gennaio 2025 – Ottobre 2025</div>
           <ul>
-            <li><strong>Machine Learning Custom Pipelines</strong> — Sviluppo di Soluzioni Personalizzate di Machine Learning per Esperimenti Cccademici</li>
-            <li><strong>Prompt Engineering</strong> — Impatto del Prompt Engineering sulla Sicurezza e la Qualità delle Interazioni con Large Language Models (QualAI)</li>
+            <li><strong>Machine Learning Custom Pipelines</strong> — Sviluppo di soluzioni personalizzate di ML per esperimenti accademici</li>
+            <li><strong>Prompt Engineering</strong> — Impatto del prompt engineering su sicurezza e qualità delle interazioni con LLM (QualAI)</li>
             <li><strong>Blockchain & Smart Contract Security</strong> — Sicurezza di smart contracts e affidabilità di tool di detection</li>
           </ul>
         </div>
         <div class="item">
-          <h3>Freelancing</h3>
+          <div class="with-badge">
+            <h3 style="margin:0">Freelancing</h3>
+            <span class="badge brand">💼 Progetti vari</span>
+          </div>
           <div class="meta">Gennaio 2025 – Ottobre 2025</div>
           <ul>
-            <li><strong>Wordpress</strong> - Realizzazione e Manutenzione siti Wordpress</li>
-            <li><strong>Consulenza</strong> - Sviluppo Sistemi in C# e Java</li>
+            <li><strong>WordPress</strong> — Realizzazione e manutenzione siti</li>
+            <li><strong>Consulenza</strong> — Sviluppo sistemi in C# e Java</li>
           </ul>
         </div>
       </div>
     </section>
 
+    <!-- STUDI -->
     <section id="studi" class="card" aria-labelledby="studi-h">
       <h2 id="studi-h">Titoli di studio</h2>
       <div class="list">
         <div class="item">
-          <h3>Laurea Magistrale in Informatica</h3>
-          <h5>110 e Lode</h5>
+          <div class="with-badge">
+            <h3 style="margin:0">Laurea Magistrale in Informatica</h3>
+            <span class="badge award" aria-label="Voto">⭐ 110 e Lode</span>
+          </div>
           <div class="meta">Software Engineering & IT Management · Settembre 2022 – Ottobre 2024 · Università degli Studi di Salerno</div>
-          <p><strong>Tesi:</strong> Definizione e Valutazione di un Catalogo di Template di Prompt Engineering per la Sicurezza e la Qualità del Codice Generato da LLM.</p>
+          <p><strong>Tesi:</strong> Definizione e valutazione di un catalogo di template di prompt engineering per la sicurezza e la qualità del codice generato da LLM.</p>
           <p class="meta">Competenze: Ingegneria del software, gestione progetti, cybersecurity, AI & Machine Learning</p>
         </div>
         <div class="item">
-          <h3>Laurea Triennale in Informatica</h3>
-          <h5>110 e Lode</h5>
+          <div class="with-badge">
+            <h3 style="margin:0">Laurea Triennale in Informatica</h3>
+            <span class="badge award">⭐ 110 e Lode</span>
+          </div>
           <div class="meta">Settembre 2019 – Settembre 2022 · Università degli Studi di Salerno</div>
-          <p><strong>Tesi:</strong> Implementazione di un Sistema di Intrusion Detection per l’IoT tramite Machine Learning.</p>
+          <p><strong>Tesi:</strong> Implementazione di un sistema di intrusion detection per l’IoT tramite Machine Learning.</p>
           <p class="meta">Competenze: Programmazione procedurale e OO, Fondamenti di AI, Web/Mobile/Distribuita</p>
         </div>
       </div>
     </section>
 
+    <!-- PROGETTI -->
     <section id="progetti" class="card" aria-labelledby="progetti-h">
       <h2 id="progetti-h">Progetti</h2>
       <div class="list">
@@ -307,6 +319,7 @@ permalink: /
       </div>
     </section>
 
+    <!-- PUBBLICAZIONI -->
     <section id="pubblicazioni" class="card" aria-labelledby="pubblicazioni-h">
       <h2 id="pubblicazioni-h">Pubblicazioni</h2>
       <ul>
@@ -322,6 +335,7 @@ permalink: /
       </ul>
     </section>
 
+    <!-- COMPETENZE -->
     <section id="competenze" class="card" aria-labelledby="competenze-h">
       <h2 id="competenze-h">Competenze</h2>
       <div class="grid" style="grid-template-columns:1fr 1fr">
@@ -351,6 +365,7 @@ permalink: /
       </div>
     </section>
 
+    <!-- CONTATTI -->
     <section id="contatti" class="card" aria-labelledby="contatti-h">
       <h2 id="contatti-h">Contatti</h2>
       <p>
