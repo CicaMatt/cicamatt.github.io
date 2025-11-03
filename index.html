@@ -63,20 +63,17 @@ permalink: /
     /* Layout */
     .container{max-width:960px; margin:0 auto; padding:1.25rem}
     header{left:0;} 
-    .nav{display:flex; gap:.75rem; align-items:center; justify-content:space-between; padding:.6rem 0}
-    .brand{display:flex; align-items:center; gap:.75rem}
-    .avatar{width:44px; height:44px; border-radius:50%; display:inline-block; border:1px solid var(--border); object-fit: cover;}
-    .name{font-weight:700; letter-spacing:.2px}
-    .role{color:var(--muted); font-size:.95rem}
+    .nav{
+      display:flex; gap:.75rem; align-items:center; justify-content:center; /* centrato */
+      padding:.6rem 0
+    }
     nav a{color:var(--muted); text-decoration:none; padding:.4rem .6rem; border-radius:.6rem;}
     nav a:hover, nav a:focus{color:var(--fg); outline:2px solid var(--ring)}
 
     main{padding-top:1rem}
     
     /* Spaziatura tra sezioni */
-    main section + section{
-        margin-top: 1.5rem;
-    }
+    main section + section{ margin-top: 1.5rem; }
 
     .grid{display:grid; gap:1rem}
     @media(min-width:800px){ .grid{grid-template-columns: 2fr 1fr; gap:1.25rem} }
@@ -99,7 +96,6 @@ permalink: /
     .section-nav a{border:1px solid var(--border); border-radius:.6rem; padding:.35rem .6rem; color:var(--muted); text-decoration:none}
     .section-nav a:hover{color:var(--fg)}
 
-    /* Anchor offset for sticky header */
     :target{scroll-margin-top:80px}
     section[id]{scroll-margin-top:80px}
 
@@ -144,13 +140,7 @@ permalink: /
   <a class="sr-only" href="#inizio">Salta al contenuto</a>
   <header>
     <div class="container nav">
-      <div class="brand">
-        <img src="profilo.jpg" alt="Foto profilo di Matteo Cicalese" class="avatar">
-        <div>
-          <div class="name">Matteo Cicalese</div>
-          <div class="role">Backend Software Engineer</div>
-        </div>
-      </div>
+      <!-- RIMOSSO brand per eliminare "Matteo Cicalese" in alto a sinistra; nav resta centrata -->
       <nav aria-label="Sezioni">
         <a href="#esperienze">Esperienze</a>
         <a href="#studi">Studi</a>
@@ -164,7 +154,7 @@ permalink: /
 
   <main id="inizio" class="container">
     <section class="card">
-      <h1>Matteo Cicalese</h1>
+      <h1>Matteo Cicalese — Backend Software Engineer</h1>
       <p class="meta">Nocera Inferiore (SA) · Disponibile per viaggi e trasferte</p>
       <div class="actions" style="display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.75rem">
         <a class="pill" href="mailto:matteocicalese01@gmail.com">📧 Email</a>
@@ -175,7 +165,6 @@ permalink: /
       </div>
     </section>
 
-    <!-- Esperienze ora a tutta larghezza (rimosso aside “Competenze chiave” e il wrapper .grid) -->
     <section id="esperienze" class="card" aria-labelledby="esperienze-h">
       <h2 id="esperienze-h">Esperienze</h2>
       <div class="list">
