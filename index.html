@@ -182,7 +182,7 @@ permalink: /
     .btn-ghost{ background: transparent; color:var(--muted); border-style:dashed; }
     .btn-ghost:hover{ color:var(--fg); border-color:var(--fg); }
 
-    /* --- BADGE per h3 --- */
+    /* --- BADGE per h3 / intestazioni item --- */
     .with-badge{
       display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap;
       margin:1rem 0 .25rem;
@@ -224,35 +224,17 @@ permalink: /
     .section-title::before{ background: linear-gradient(90deg, transparent, var(--accent)); }
     .section-title::after{  background: linear-gradient(90deg, var(--accent), transparent); }
 
-    /* === DEGREE HEAD (titolo + ateneo + voto integrato) === */
+    /* === DEGREE HEAD (titolo + ateneo) === */
     .degree-head{
       display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap;
     }
-    .degree-head .spacer{ flex:1 1 auto; } /* spinge il voto a destra */
-    .grade-ribbon{
-      position:relative;
-      display:inline-flex; align-items:center; gap:.4rem;
-      padding:.42rem .85rem .42rem .75rem;
-      font-size:.92rem; font-weight:900; letter-spacing:.25px;
-      color:#fff;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      border-radius:.55rem;
-      box-shadow: 0 6px 20px rgba(11,114,255,.25), inset 0 1px 0 rgba(255,255,255,.25);
-      white-space:nowrap;
-    }
-    /* "punta" del nastro a destra */
-    .grade-ribbon::after{
-      content:"";
-      position:absolute; top:0; right:-10px; width:10px; height:100%;
-      background:inherit;
-      clip-path: polygon(0 0, 100% 50%, 0 100%);
-      filter:brightness(.98);
-    }
-    .grade-ribbon small{ font-weight:800; opacity:.95 }
 
-    /* === TRACK / INDIRIZZO MAGISTRALE === */
-    .degree-sub{ margin-top:.5rem; }
-    .track-tag{
+    /* === RIGA SOTTO: indirizzo + voto affiancati (sinistra) === */
+    .degree-meta{
+      display:flex; align-items:center; gap:.5rem; flex-wrap:wrap;
+      margin-top:.4rem;
+    }
+    .track-chip{
       display:inline-flex; align-items:center; gap:.45rem;
       padding:.4rem .65rem;
       border-radius:.6rem;
@@ -261,7 +243,20 @@ permalink: /
       color: var(--fg);
       font-weight:700; letter-spacing:.2px; font-size:.95rem;
     }
-    .track-tag i{ font-style:normal; opacity:.75 }
+    .track-chip i{ font-style:normal; opacity:.75 }
+
+    .grade-badge{
+      display:inline-flex; align-items:center; gap:.35rem;
+      padding:.36rem .6rem;
+      border-radius:.6rem;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color:#fff; border: 1px solid transparent;
+      font-weight:900; letter-spacing:.25px; font-size:.92rem;
+      box-shadow: 0 6px 18px rgba(11,114,255,.25), inset 0 1px 0 rgba(255,255,255,.25);
+      white-space:nowrap;
+    }
+    .grade-badge small{ font-weight:800; opacity:.95 }
+
   </style>
 
   <script type="application/ld+json">
@@ -358,16 +353,11 @@ permalink: /
           <div class="degree-head">
             <h3 class="degree-title" style="margin:0">Laurea Magistrale in Informatica</h3>
             <span class="badge brand" aria-label="Ateneo">🏛️ Università degli Studi di Salerno</span>
-            <span class="spacer" aria-hidden="true"></span>
-            <span class="grade-ribbon" aria-label="Voto finale">
-              <strong>110/110</strong> <small>· Lode</small>
-            </span>
           </div>
-
-          <div class="degree-sub">
-            <span class="track-tag" aria-label="Indirizzo di studio">🎓 <i>Software Engineering &amp; IT Management</i></span>
+          <div class="degree-meta">
+            <span class="track-chip" aria-label="Indirizzo di studio">🎓 <i>Software Engineering &amp; IT Management</i></span>
+            <span class="grade-badge" aria-label="Voto finale">🏅 <strong>110/110</strong> <small>· Lode</small></span>
           </div>
-
           <div class="meta">Settembre 2022 – Ottobre 2024</div>
           <p><strong>Tesi:</strong> Definizione e valutazione di un catalogo di template di prompt engineering per la sicurezza e la qualità del codice generato da LLM.</p>
           <p class="meta">Competenze: Ingegneria del software, gestione progetti, cybersecurity, AI &amp; Machine Learning</p>
@@ -378,12 +368,11 @@ permalink: /
           <div class="degree-head">
             <h3 class="degree-title" style="margin:0">Laurea Triennale in Informatica</h3>
             <span class="badge brand" aria-label="Ateneo">🏛️ Università degli Studi di Salerno</span>
-            <span class="spacer" aria-hidden="true"></span>
-            <span class="grade-ribbon" aria-label="Voto finale">
-              <strong>110/110</strong> <small>· Lode</small>
-            </span>
           </div>
-
+          <div class="degree-meta">
+            <span class="track-chip" aria-label="Indirizzo di studio">🎓 <i>Informatica</i></span>
+            <span class="grade-badge" aria-label="Voto finale">🏅 <strong>110/110</strong> <small>· Lode</small></span>
+          </div>
           <div class="meta">Settembre 2019 – Settembre 2022</div>
           <p><strong>Tesi:</strong> Implementazione di un sistema di intrusion detection per l’IoT tramite Machine Learning.</p>
           <p class="meta">Competenze: Programmazione procedurale e OO, Fondamenti di AI, Web/Mobile/Distribuita</p>
