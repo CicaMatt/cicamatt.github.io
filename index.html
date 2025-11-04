@@ -64,9 +64,8 @@ permalink: /
     /* Typography */
     :where(h1,h2,h3,h4){line-height:1.15}
     :where(h1){font-size:clamp(2rem, 3.2vw + 1rem, 3rem); margin:0}
-    /* H2: dimensione originale */
     :where(h2){font-size:clamp(1.15rem, 1.1vw + .9rem, 1.5rem); margin:1.75rem 0 1rem}
-    /* H3: un po' più grandi */
+    /* H3 più grandi */
     :where(h3){font-size:clamp(1.15rem, 0.9vw + 1rem, 1.35rem); margin:1rem 0 .5rem}
     p, li{max-width:75ch}
     ul{padding-left:1.2rem}
@@ -213,7 +212,7 @@ permalink: /
       font-weight:800;
       letter-spacing:.2px;
       margin:0 0 1rem 0;
-      text-align:center; /* centra il testo nell'area centrale */
+      text-align:center;
     }
     .section-title::before,
     .section-title::after{
@@ -225,18 +224,42 @@ permalink: /
     .section-title::before{ background: linear-gradient(90deg, transparent, var(--accent)); }
     .section-title::after{  background: linear-gradient(90deg, var(--accent), transparent); }
 
-    /* === VOTO sotto al titolo === */
-    .grade-line{ margin-top:.35rem; }
-    .grade-pill{
+    /* === VOTO integrato nel titolo (chip) + underline "glow" === */
+    .degree-title{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      gap:.55rem;
+      margin:0; /* l’h3 non aggiunge margine extra */
+      padding-bottom:.25rem; /* spazio per la linea glow */
+    }
+    .degree-title::after{
+      content:"";
+      position:absolute; left:0; right:0; bottom:-2px; height:3px; border-radius:999px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity:.55;
+      filter:saturate(120%);
+    }
+    .grade-chip{
       display:inline-flex; align-items:center; gap:.35rem;
-      font-size:.92rem; font-weight:800; letter-spacing:.2px;
-      padding:.38rem .65rem; border-radius:.6rem;
-      border:1px solid var(--accent);
+      font-size:.82rem; font-weight:900; letter-spacing:.3px;
+      padding:.28rem .6rem; border-radius:999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color:#fff;
+      box-shadow: 0 6px 20px rgba(11,114,255,.25);
+      transform: translateY(-1px);
+    }
+    .grade-chip svg{ width:14px; height:14px; }
+
+    /* === Badge indirizzo corso === */
+    .track-badge{
+      display:inline-flex; align-items:center; gap:.45rem;
+      font-size:.9rem; font-weight:800; letter-spacing:.2px;
+      padding:.35rem .6rem; border-radius:.6rem;
+      border:1px dashed var(--accent);
       background: rgba(11,114,255,.08);
       color: var(--fg);
-      box-shadow: 0 1px 2px rgba(0,0,0,.04);
     }
-    .grade-pill strong{ font-weight:900; }
   </style>
 
   <script type="application/ld+json">
@@ -330,24 +353,34 @@ permalink: /
 
         <div class="item">
           <div class="with-badge">
-            <h3 style="margin:0">Laurea Magistrale in Informatica</h3>
+            <h3 class="degree-title">
+              Laurea Magistrale in Informatica
+              <span class="grade-chip" aria-label="Voto finale" title="Voto finale: 110/110 · Lode">
+                <!-- medaglietta svg -->
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l2.1 4.26 4.7.68-3.4 3.31.8 4.75L12 13.77 7.8 16l.8-4.75-3.4-3.31 4.7-.68L12 3Z" stroke="currentColor" stroke-width="1.5"/></svg>
+                110/110 · Lode
+              </span>
+            </h3>
             <span class="badge brand" aria-label="Ateneo">🏛️ Università degli Studi di Salerno</span>
           </div>
-          <div class="grade-line">
-            <span class="grade-pill" aria-label="Voto finale"><strong>110/110</strong> · Lode</span>
+          <div class="meta">
+            <span class="track-badge" aria-label="Indirizzo">🧭 Software Engineering &amp; IT Management</span>
+            · Settembre 2022 – Ottobre 2024
           </div>
-          <div class="meta">Software Engineering &amp; IT Management · Settembre 2022 – Ottobre 2024</div>
           <p><strong>Tesi:</strong> Definizione e valutazione di un catalogo di template di prompt engineering per la sicurezza e la qualità del codice generato da LLM.</p>
           <p class="meta">Competenze: Ingegneria del software, gestione progetti, cybersecurity, AI &amp; Machine Learning</p>
         </div>
 
         <div class="item">
           <div class="with-badge">
-            <h3 style="margin:0">Laurea Triennale in Informatica</h3>
+            <h3 class="degree-title">
+              Laurea Triennale in Informatica
+              <span class="grade-chip" aria-label="Voto finale" title="Voto finale: 110/110 · Lode">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l2.1 4.26 4.7.68-3.4 3.31.8 4.75L12 13.77 7.8 16l.8-4.75-3.4-3.31 4.7-.68L12 3Z" stroke="currentColor" stroke-width="1.5"/></svg>
+                110/110 · Lode
+              </span>
+            </h3>
             <span class="badge brand" aria-label="Ateneo">🏛️ Università degli Studi di Salerno</span>
-          </div>
-          <div class="grade-line">
-            <span class="grade-pill" aria-label="Voto finale"><strong>110/110</strong> · Lode</span>
           </div>
           <div class="meta">Settembre 2019 – Settembre 2022</div>
           <p><strong>Tesi:</strong> Implementazione di un sistema di intrusion detection per l’IoT tramite Machine Learning.</p>
@@ -387,42 +420,4 @@ permalink: /
           <h3>Programmazione</h3>
           <ul>
             <li><strong>Proficient:</strong> Python, Java, SQL, MongoDB, HTML/CSS</li>
-            <li><strong>Experienced:</strong> JavaScript, C, C#, LaTeX</li>
-            <li><strong>Familiar:</strong> Java EE, PHP, Solidity, C++, Assembly, Shell</li>
-          </ul>
-          <h3>Librerie & Framework</h3>
-          <p class="meta">jQuery, Node.js, React</p>
-          <h3>Tool</h3>
-          <p class="meta">Git, Docker, WordPress</p>
-        </div>
-        <div>
-          <h3>Sistemi Operativi</h3>
-          <p class="meta">Windows · Linux · macOS</p>
-          <h3>Lingue</h3>
-          <ul>
-            <li>Italiano — Madrelingua</li>
-            <li>Inglese — B2 (Cambridge)</li>
-          </ul>
-          <h3>Certificazioni</h3>
-          <p class="meta">Richi Entrepreneurs 2023 · SEIUNISA Innovator 2023 · RobotCup Participation 2019</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer">
-      <div class="footer-bar">
-        <span></span>
-        <span class="footer-center">© <span id="year"></span> Matteo Cicalese. Custom Website.</span>
-        <a href="#inizio" class="footer-right back-to-top" aria-label="Torna all'inizio">Torna su ↑</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+            <li><strong>Experienc
