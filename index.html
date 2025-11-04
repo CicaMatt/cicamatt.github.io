@@ -132,7 +132,7 @@ permalink: /
       background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity:.6;
     }
 
-    /* --- CTA --- */
+    /* --- BOTTONI --- */
     .cta{ text-align:center; padding:1rem; }
     .btns{ display:flex; flex-wrap:wrap; justify-content:center; gap:.7rem; margin-top:.25rem; }
     .btn{
@@ -159,13 +159,13 @@ permalink: /
     /* === TITOLI SEZIONE CENTRATI === */
     .section-title{
       display:grid;
-      grid-template-columns: 1fr auto 1fr; /* line - title - line */
+      grid-template-columns: 1fr auto 1fr;
       align-items:center;
       gap:.75rem;
       font-weight:800;
       letter-spacing:.2px;
       margin:0 0 1rem 0;
-      text-align:center; /* centra il testo nell'area centrale */
+      text-align:center;
     }
     .section-title::before,
     .section-title::after{
@@ -174,14 +174,8 @@ permalink: /
       border-radius:999px;
       opacity:.5;
     }
-    /* linea sinistra sfuma verso il centro */
-    .section-title::before{
-      background: linear-gradient(90deg, transparent, var(--accent));
-    }
-    /* linea destra sfuma via dal centro */
-    .section-title::after{
-      background: linear-gradient(90deg, var(--accent), transparent);
-    }
+    .section-title::before{ background: linear-gradient(90deg, transparent, var(--accent)); }
+    .section-title::after{  background: linear-gradient(90deg, var(--accent), transparent); }
   </style>
 
   <script type="application/ld+json">
@@ -217,22 +211,28 @@ permalink: /
   </header>
 
   <main id="inizio" class="container">
+    <!-- HERO -->
     <section class="card hero" aria-labelledby="hero-title">
       <h1 id="hero-title" class="name">Matteo Cicalese</h1>
       <p class="role" aria-label="Ruolo">Backend Software Engineer</p>
       <div class="underline" aria-hidden="true"></div>
     </section>
 
-    <section class="card cta" aria-labelledby="cta-title">
-      <h2 id="cta-title" class="sr-only">Azioni principali</h2>
-      <div class="btns">
-        <a class="btn btn-primary" href="Curriculum.pdf" download>Scarica CV</a>
-        <a class="btn btn-outline" href="mailto:matteocicalese01@gmail.com">Email</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/cicamatt/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn btn-ghost" href="https://github.com/cicamatt" target="_blank" rel="noopener">GitHub</a>
+    <!-- CONTATTI (spostato in alto + pulsanti) -->
+    <section id="contatti" class="card" aria-labelledby="contatti-h">
+      <h2 id="contatti-h" class="section-title">Contatti</h2>
+      <div class="cta">
+        <div class="btns">
+          <a class="btn btn-primary" href="Curriculum.pdf" download>Scarica CV</a>
+          <a class="btn btn-outline" href="mailto:matteocicalese01@gmail.com">Email</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/cicamatt/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://github.com/cicamatt" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-ghost" href="https://maps.app.goo.gl/pCSZWt5eJbz3mRFs9" target="_blank" rel="noopener">Nocera Inferiore (SA)</a>
+        </div>
       </div>
     </section>
 
+    <!-- ESPERIENZE -->
     <section id="esperienze" class="card" aria-labelledby="esperienze-h">
       <h2 id="esperienze-h" class="section-title">Esperienze</h2>
       <div class="list">
@@ -262,6 +262,7 @@ permalink: /
       </div>
     </section>
 
+    <!-- STUDI -->
     <section id="studi" class="card" aria-labelledby="studi-h">
       <h2 id="studi-h" class="section-title">Titoli di studio</h2>
       <div class="list">
@@ -286,6 +287,7 @@ permalink: /
       </div>
     </section>
 
+    <!-- PROGETTI -->
     <section id="progetti" class="card" aria-labelledby="progetti-h">
       <h2 id="progetti-h" class="section-title">Progetti</h2>
       <div class="list">
@@ -307,6 +309,7 @@ permalink: /
       </div>
     </section>
 
+    <!-- COMPETENZE -->
     <section id="competenze" class="card" aria-labelledby="competenze-h">
       <h2 id="competenze-h" class="section-title">Competenze</h2>
       <div class="grid" style="grid-template-columns:1fr 1fr">
@@ -334,15 +337,6 @@ permalink: /
           <p class="meta">Richi Entrepreneurs 2023 · SEIUNISA Innovator 2023 · RobotCup Participation 2019</p>
         </div>
       </div>
-    </section>
-
-    <section id="contatti" class="card" aria-labelledby="contatti-h">
-      <h2 id="contatti-h" class="section-title">Contatti</h2>
-      <p>
-        <a class="btn btn-outline" href="mailto:matteocicalese01@gmail.com">matteocicalese01@gmail.com</a>
-        <a class="btn btn-ghost" href="https://maps.app.goo.gl/pCSZWt5eJbz3mRFs9" target="_blank" rel="noopener">Nocera Inferiore (SA)</a>
-      </p>
-      <p class="meta">Disponibile a viaggi e trasferimenti.</p>
     </section>
   </main>
 
