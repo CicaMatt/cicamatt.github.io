@@ -104,7 +104,7 @@ permalink: /
     /* Footer */
     footer{ margin-top:auto; background:transparent; }
     .footer{ color:var(--muted); font-size:.95rem; padding:1.75rem 0 2rem; }
-    /* Usare flex per un allineamento più affidabile */
+    /* Flex per allineamento robusto */
     .footer-bar{
       display:flex;
       align-items:center;
@@ -227,7 +227,6 @@ permalink: /
     .degree-head{
       display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap;
     }
-    /* RIGA SOTTO: indirizzo + voto affiancati (sinistra) */
     .degree-meta{
       display:flex; align-items:center; gap:.5rem; flex-wrap:wrap;
       margin-top:.4rem;
@@ -255,7 +254,7 @@ permalink: /
     }
     .grade-badge small{ font-weight:800; opacity:.95 }
 
-    /* --- PROGETTI: meta riga e chip linguaggio --- */
+    /* --- PROGETTI --- */
     .project-head{ display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap; }
     .project-meta{
       display:flex; align-items:center; gap:.5rem; flex-wrap:wrap;
@@ -276,6 +275,57 @@ permalink: /
       font-size:.9em; font-weight:900;
     }
     .project-year{ color:var(--muted); font-size:.95rem; }
+
+    /* === COMPETENZE – layout e stile === */
+    .skills-grid{
+      display:grid; gap:1rem;
+      grid-template-columns:1fr;
+    }
+    @media(min-width:820px){
+      .skills-grid{ grid-template-columns:1fr 1fr; }
+    }
+    @media(min-width:1200px){
+      .skills-grid{ grid-template-columns:1fr 1fr 1fr; }
+    }
+    .skill-card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:.9rem;
+      padding:1rem;
+      box-shadow:var(--shadow);
+    }
+    .skill-card h3{
+      margin:.1rem 0 .6rem; font-size:1.02rem; letter-spacing:.2px;
+      display:flex; align-items:center; gap:.5rem;
+    }
+    .skill-chips{ display:flex; flex-wrap:wrap; gap:.45rem; }
+    .skill-chip{
+      display:inline-flex; align-items:center; gap:.35rem;
+      padding:.38rem .6rem; border-radius:.6rem;
+      border:1px dashed var(--border);
+      background:rgba(11,114,255,.06);
+      font-weight:700; font-size:.92rem;
+      box-shadow:0 1px 2px rgba(0,0,0,.04);
+      white-space:nowrap;
+    }
+    .skill-note{ color:var(--muted); font-size:.95rem; margin-top:.4rem }
+
+    .meter{ height:8px; background:rgba(0,0,0,.06); border-radius:999px; overflow:hidden; }
+    @media (prefers-color-scheme: dark){
+      .meter{ background:#191919; }
+    }
+    .meter > span{
+      display:block; height:100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius:inherit;
+      box-shadow: 0 2px 8px rgba(11,114,255,.25), inset 0 1px 0 rgba(255,255,255,.25);
+    }
+
+    .skill-list{ display:grid; gap:.6rem }
+    .skill-row{
+      display:grid; grid-template-columns:auto 1fr; align-items:center; gap:.6rem;
+    }
+    .skill-row strong{ white-space:nowrap }
   </style>
 
   <script type="application/ld+json">
@@ -299,12 +349,12 @@ permalink: /
   <header>
     <div class="container nav">
       <nav aria-label="Sezioni">
-        <a href="#contatti">Contatti</a>
         <a href="#esperienze">Esperienze</a>
         <a href="#studi">Studi</a>
         <a href="#progetti">Progetti</a>
         <a href="#pubblicazioni">Pubblicazioni</a>
         <a href="#competenze">Competenze</a>
+        <a href="#contatti">Contatti</a>
       </nav>
     </div>
   </header>
@@ -317,13 +367,12 @@ permalink: /
       <div class="underline" aria-hidden="true"></div>
     </section>
 
-    <!-- CONTATTI (in alto con pulsanti) -->
+    <!-- CONTATTI -->
     <section id="contatti" class="card" aria-labelledby="contatti-h">
       <h2 id="contatti-h" class="section-title">Contatti</h2>
       <div class="cta">
         <div class="btns">
           <a class="btn btn-primary" href="Curriculum.pdf" download>Scarica CV</a>
-          <!-- Testo pulsante aggiornato con l'email -->
           <a class="btn btn-outline" href="mailto:matteocicalese01@gmail.com">matteocicalese01@gmail.com</a>
           <a class="btn btn-ghost" href="https://www.linkedin.com/in/cicamatt/" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn btn-ghost" href="https://github.com/cicamatt" target="_blank" rel="noopener">GitHub</a>
@@ -366,8 +415,6 @@ permalink: /
     <section id="studi" class="card" aria-labelledby="studi-h">
       <h2 id="studi-h" class="section-title">Titoli di Studio</h2>
       <div class="list">
-
-        <!-- MAGISTRALE -->
         <div class="item">
           <div class="degree-head">
             <h3 class="degree-title" style="margin:0">Laurea Magistrale in Informatica</h3>
@@ -382,7 +429,6 @@ permalink: /
           <p class="meta">Competenze: Ingegneria del Software, Gestione Progetti, Cybersecurity, Intelligenza Artificiale, Ethical Hacking &amp; Machine Learning</p>
         </div>
 
-        <!-- TRIENNALE -->
         <div class="item">
           <div class="degree-head">
             <h3 class="degree-title" style="margin:0">Laurea Triennale in Informatica</h3>
@@ -396,7 +442,6 @@ permalink: /
           <p><strong>Tesi:</strong> Implementazione di un Sistema di Intrusion Detection per l’IoT tramite Machine Learning.</p>
           <p class="meta">Competenze: Programmazione procedurale, Object-Oriented, Web/Distribuita, Mobile, Fondamenti di IA</p>
         </div>
-
       </div>
     </section>
 
@@ -404,7 +449,6 @@ permalink: /
     <section id="progetti" class="card" aria-labelledby="progetti-h">
       <h2 id="progetti-h" class="section-title">Progetti</h2>
       <div class="list">
-
         <div class="item">
           <div class="project-head">
             <h3 style="margin:0">Medicare</h3>
@@ -450,37 +494,92 @@ permalink: /
           </div>
           <p>Piattaforma web di e-commerce per la vendita di componenti e periferiche PC, con gestione utenze, ordini, spedizioni e pagamenti.</p>
         </div>
-
       </div>
     </section>
 
-    <!-- COMPETENZE -->
+    <!-- COMPETENZE (nuovo layout) -->
     <section id="competenze" class="card" aria-labelledby="competenze-h">
       <h2 id="competenze-h" class="section-title">Competenze</h2>
-      <div class="grid" style="grid-template-columns:1fr 1fr">
-        <div>
-          <h3>Programmazione</h3>
-          <ul>
-            <li><strong>Proficient:</strong> Python, Java, SQL, MongoDB, HTML/CSS</li>
-            <li><strong>Experienced:</strong> JavaScript, C, C#, LaTeX</li>
-            <li><strong>Familiar:</strong> Java EE, PHP, Solidity, C++, Assembly, Shell</li>
-          </ul>
-          <h3>Librerie & Framework</h3>
-          <p class="meta">jQuery, Node.js, React</p>
-          <h3>Tool</h3>
-          <p class="meta">Git, Docker, WordPress</p>
+
+      <div class="skills-grid">
+
+        <!-- Linguaggi & DB (con barre) -->
+        <div class="skill-card" aria-labelledby="skills-lang">
+          <h3 id="skills-lang">🧠 Linguaggi &amp; DB</h3>
+          <div class="skill-list" role="list">
+            <div class="skill-row" role="listitem" aria-label="Python livello 90%">
+              <strong>Python</strong>
+              <div class="meter" aria-hidden="true"><span style="width:90%"></span></div>
+            </div>
+            <div class="skill-row" role="listitem" aria-label="Java livello 85%">
+              <strong>Java</strong>
+              <div class="meter"><span style="width:85%"></span></div>
+            </div>
+            <div class="skill-row" role="listitem" aria-label="SQL livello 80%">
+              <strong>SQL</strong>
+              <div class="meter"><span style="width:80%"></span></div>
+            </div>
+            <div class="skill-row" role="listitem" aria-label="MongoDB livello 75%">
+              <strong>MongoDB</strong>
+              <div class="meter"><span style="width:75%"></span></div>
+            </div>
+            <div class="skill-row" role="listitem" aria-label="HTML/CSS livello 75%">
+              <strong>HTML/CSS</strong>
+              <div class="meter"><span style="width:75%"></span></div>
+            </div>
+          </div>
+          <p class="skill-note">Altre: JavaScript · C · C# · LaTeX · Java EE · PHP · Solidity · C++ · Assembly · Shell</p>
         </div>
-        <div>
-          <h3>Sistemi Operativi</h3>
-          <p class="meta">Windows · Linux · MacOS</p>
-          <h3>Lingue</h3>
-          <ul>
+
+        <!-- Librerie & Framework -->
+        <div class="skill-card" aria-labelledby="skills-lib">
+          <h3 id="skills-lib">🧩 Librerie &amp; Framework</h3>
+          <div class="skill-chips" role="list">
+            <span class="skill-chip" role="listitem">React</span>
+            <span class="skill-chip" role="listitem">Node.js</span>
+            <span class="skill-chip" role="listitem">jQuery</span>
+          </div>
+        </div>
+
+        <!-- Tool & DevOps -->
+        <div class="skill-card" aria-labelledby="skills-tools">
+          <h3 id="skills-tools">🛠️ Tool &amp; DevOps</h3>
+          <div class="skill-chips" role="list">
+            <span class="skill-chip" role="listitem">Git</span>
+            <span class="skill-chip" role="listitem">Docker</span>
+            <span class="skill-chip" role="listitem">WordPress</span>
+          </div>
+        </div>
+
+        <!-- Sistemi Operativi -->
+        <div class="skill-card" aria-labelledby="skills-os">
+          <h3 id="skills-os">🖥️ Sistemi Operativi</h3>
+          <div class="skill-chips" role="list">
+            <span class="skill-chip" role="listitem">Windows</span>
+            <span class="skill-chip" role="listitem">Linux</span>
+            <span class="skill-chip" role="listitem">macOS</span>
+          </div>
+        </div>
+
+        <!-- Lingue -->
+        <div class="skill-card" aria-labelledby="skills-langue">
+          <h3 id="skills-langue">🌍 Lingue</h3>
+          <ul class="meta" style="margin:0; padding-left:1rem">
             <li>Italiano — Madrelingua</li>
             <li>Inglese — B2 (Cambridge)</li>
           </ul>
-          <h3>Certificazioni</h3>
-          <p class="meta">Richi Entrepreneurs 2023 · SEIUNISA Innovator 2023 · RobotCup Participation 2019</p>
         </div>
+
+        <!-- Certificazioni -->
+        <div class="skill-card" aria-labelledby="skills-cert">
+          <h3 id="skills-cert">📜 Certificazioni</h3>
+          <div class="skill-chips" role="list">
+            <span class="skill-chip" role="listitem">Richi Entrepreneurs 2023</span>
+            <span class="skill-chip" role="listitem">SEIUNISA Innovator 2023</span>
+            <span class="skill-chip" role="listitem">RobotCup Participation 2019</span>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
