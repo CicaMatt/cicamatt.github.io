@@ -176,6 +176,16 @@ permalink: /
     }
     .section-title::before{ background: linear-gradient(90deg, transparent, var(--accent)); }
     .section-title::after{  background: linear-gradient(90deg, var(--accent), transparent); }
+
+    /* Badge voto coerente con lo stile */
+    .badge.grade{
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #fff;
+      border-color: transparent;
+      font-weight: 800;
+      letter-spacing: .3px;
+    }
+    .badge.grade strong{ font-weight: 900; }
   </style>
 
   <script type="application/ld+json">
@@ -269,18 +279,21 @@ permalink: /
         <div class="item">
           <div class="with-badge">
             <h3 style="margin:0">Laurea Magistrale in Informatica</h3>
-            <span class="badge award" aria-label="Voto">⭐ 110 e Lode</span>
+            <span class="badge brand" aria-label="Ateneo">🏛️ Università degli Studi di Salerno</span>
+            <span class="badge grade" aria-label="Voto finale"><strong>110</strong>/110 · Lode</span>
           </div>
-          <div class="meta">Software Engineering & IT Management · Settembre 2022 – Ottobre 2024 · Università degli Studi di Salerno</div>
+          <div class="meta">Software Engineering &amp; IT Management · Settembre 2022 – Ottobre 2024</div>
           <p><strong>Tesi:</strong> Definizione e valutazione di un catalogo di template di prompt engineering per la sicurezza e la qualità del codice generato da LLM.</p>
-          <p class="meta">Competenze: Ingegneria del software, gestione progetti, cybersecurity, AI & Machine Learning</p>
+          <p class="meta">Competenze: Ingegneria del software, gestione progetti, cybersecurity, AI &amp; Machine Learning</p>
         </div>
+    
         <div class="item">
           <div class="with-badge">
             <h3 style="margin:0">Laurea Triennale in Informatica</h3>
-            <span class="badge award">⭐ 110 e Lode</span>
+            <span class="badge brand" aria-label="Ateneo">🏛️ Università degli Studi di Salerno</span>
+            <span class="badge grade" aria-label="Voto finale"><strong>110</strong>/110 · Lode</span>
           </div>
-          <div class="meta">Settembre 2019 – Settembre 2022 · Università degli Studi di Salerno</div>
+          <div class="meta">Settembre 2019 – Settembre 2022</div>
           <p><strong>Tesi:</strong> Implementazione di un sistema di intrusion detection per l’IoT tramite Machine Learning.</p>
           <p class="meta">Competenze: Programmazione procedurale e OO, Fondamenti di AI, Web/Mobile/Distribuita</p>
         </div>
