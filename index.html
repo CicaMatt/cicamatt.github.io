@@ -269,4 +269,235 @@ permalink: /
       background: rgba(11,114,255,.06);
       color: var(--fg);
       font-weight:800; letter-spacing:.2px; font-size:.92rem;
-      box-shadow: 0 1p
+      box-shadow: 0 1px 2px rgba(0,0,0,.04);
+    }
+    .lang-chip code{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size:.9em; font-weight:900;
+    }
+    .project-year{ color:var(--muted); font-size:.95rem; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Matteo Cicalese",
+    "jobTitle": "Backend Software Engineer",
+    "email": "mailto:matteocicalese01@gmail.com",
+    "address": {"@type": "PostalAddress", "addressLocality": "Nocera Inferiore (SA)", "addressCountry": "IT"},
+    "url": "",
+    "sameAs": [
+      "https://www.linkedin.com/in/cicamatt/",
+      "https://github.com/cicamatt"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="sr-only" href="#inizio">Salta al contenuto</a>
+  <header>
+    <div class="container nav">
+      <nav aria-label="Sezioni">
+        <a href="#contatti">Contatti</a>
+        <a href="#esperienze">Esperienze</a>
+        <a href="#studi">Studi</a>
+        <a href="#progetti">Progetti</a>
+        <a href="#pubblicazioni">Pubblicazioni</a>
+        <a href="#competenze">Competenze</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inizio" class="container">
+    <!-- HERO -->
+    <section class="card hero" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="name">Matteo Cicalese</h1>
+      <p class="role" aria-label="Ruolo">Backend Software Engineer</p>
+      <div class="underline" aria-hidden="true"></div>
+    </section>
+
+    <!-- CONTATTI (in alto con pulsanti) -->
+    <section id="contatti" class="card" aria-labelledby="contatti-h">
+      <h2 id="contatti-h" class="section-title">Contatti</h2>
+      <div class="cta">
+        <div class="btns">
+          <a class="btn btn-primary" href="Curriculum.pdf" download>Scarica CV</a>
+          <!-- Testo pulsante aggiornato con l'email -->
+          <a class="btn btn-outline" href="mailto:matteocicalese01@gmail.com">matteocicalese01@gmail.com</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/cicamatt/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://github.com/cicamatt" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-ghost" href="https://maps.app.goo.gl/pCSZWt5eJbz3mRFs9" target="_blank" rel="noopener">Nocera Inferiore (SA)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESPERIENZE -->
+    <section id="esperienze" class="card" aria-labelledby="esperienze-h">
+      <h2 id="esperienze-h" class="section-title">Esperienze</h2>
+      <div class="list">
+        <div class="item">
+          <div class="with-badge">
+            <h3 style="margin:0">Assegnista di Ricerca</h3>
+            <span class="badge brand" aria-label="Ente">🏛️ Università degli Studi di Salerno</span>
+          </div>
+          <div class="meta">Gennaio 2025 – Ottobre 2025</div>
+          <ul>
+            <li><strong>Machine Learning Custom Pipelines</strong> — Sviluppo di soluzioni personalizzate di ML per esperimenti accademici</li>
+            <li><strong>Prompt Engineering</strong> — Impatto del prompt engineering su sicurezza e qualità delle interazioni con LLM (QualAI)</li>
+            <li><strong>Blockchain & Smart Contract Security</strong> — Sicurezza di smart contracts e affidabilità di tool di detection</li>
+          </ul>
+        </div>
+        <div class="item">
+          <div class="with-badge">
+            <h3 style="margin:0">Freelancing</h3>
+            <span class="badge brand">💼 Progetti vari</span>
+          </div>
+          <div class="meta">Gennaio 2025 – Ottobre 2025</div>
+          <ul>
+            <li><strong>WordPress</strong> — Realizzazione e Manutenzione siti</li>
+            <li><strong>Consulenza</strong> — Sviluppo Sistemi in C# e Java</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TITOLI DI STUDIO -->
+    <section id="studi" class="card" aria-labelledby="studi-h">
+      <h2 id="studi-h" class="section-title">Titoli di Studio</h2>
+      <div class="list">
+
+        <!-- MAGISTRALE -->
+        <div class="item">
+          <div class="degree-head">
+            <h3 class="degree-title" style="margin:0">Laurea Magistrale in Informatica</h3>
+            <span class="badge brand" aria-label="Ateneo">🏛️ Università degli Studi di Salerno</span>
+          </div>
+          <div class="degree-meta">
+            <span class="track-chip" aria-label="Indirizzo di studio">🎓 <i>Software Engineering &amp; IT Management</i></span>
+            <span class="grade-badge" aria-label="Voto finale">🏅 <strong>110/110</strong> <small>· Lode</small></span>
+          </div>
+          <div class="meta">Settembre 2022 – Ottobre 2024</div>
+          <p><strong>Tesi:</strong> Definizione e Valutazione di un Catalogo di Template di Prompt Engineering per la Sicurezza e la Qualità del Codice Generato da Large Language Models</p>
+          <p class="meta">Competenze: Ingegneria del Software, Gestione Progetti, Cybersecurity, Intelligenza Artificiale, Ethical Hacking &amp; Machine Learning</p>
+        </div>
+
+        <!-- TRIENNALE -->
+        <div class="item">
+          <div class="degree-head">
+            <h3 class="degree-title" style="margin:0">Laurea Triennale in Informatica</h3>
+            <span class="badge brand" aria-label="Ateneo">🏛️ Università degli Studi di Salerno</span>
+          </div>
+          <div class="degree-meta">
+            <span class="track-chip" aria-label="Indirizzo di studio">🎓 <i>Informatica</i></span>
+            <span class="grade-badge" aria-label="Voto finale">🏅 <strong>110/110</strong> <small>· Lode</small></span>
+          </div>
+          <div class="meta">Settembre 2019 – Settembre 2022</div>
+          <p><strong>Tesi:</strong> Implementazione di un Sistema di Intrusion Detection per l’IoT tramite Machine Learning.</p>
+          <p class="meta">Competenze: Programmazione procedurale, Object-Oriented, Web/Distribuita, Mobile, Fondamenti di IA</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROGETTI -->
+    <section id="progetti" class="card" aria-labelledby="progetti-h">
+      <h2 id="progetti-h" class="section-title">Progetti</h2>
+      <div class="list">
+
+        <div class="item">
+          <div class="project-head">
+            <h3 style="margin:0">Medicare</h3>
+            <span class="badge brand">👥 Project Manager</span>
+          </div>
+          <div class="project-meta">
+            <span class="lang-chip">💻 <code>Python</code></span>
+            <span class="project-year">2023</span>
+          </div>
+          <p>Piattaforma web per la prenotazione di visite mediche presso strutture pubbliche/private, gestione cartella clinica ed esplorazione catalogo farmaci.</p>
+        </div>
+
+        <div class="item">
+          <div class="project-head">
+            <h3 style="margin:0">Sentry</h3>
+          </div>
+          <div class="project-meta">
+            <span class="lang-chip">💻 <code>Python</code></span>
+            <span class="project-year">2022</span>
+          </div>
+          <p>Pipeline custom di Machine Learning per classificare vulnerabilità (CVE) nei commit GitHub tramite metriche di sviluppo software.</p>
+        </div>
+
+        <div class="item">
+          <div class="project-head">
+            <h3 style="margin:0">Quantumoonlight</h3>
+          </div>
+          <div class="project-meta">
+            <span class="lang-chip">💻 <code>Python</code></span>
+            <span class="project-year">2021</span>
+          </div>
+          <p>Piattaforma web per validazione, preprocessing e classificazione dataset con pipeline personalizzabile, sfruttando backend quantistici IBM.</p>
+        </div>
+
+        <div class="item">
+          <div class="project-head">
+            <h3 style="margin:0">PcMasterRace</h3>
+            <span class="badge brand">👥 Team Leader</span>
+          </div>
+          <div class="project-meta">
+            <span class="lang-chip">💻 <code>Java</code></span>
+            <span class="project-year">2020</span>
+          </div>
+          <p>Piattaforma web di e-commerce per la vendita di componenti e periferiche PC, con gestione utenze, ordini, spedizioni e pagamenti.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COMPETENZE -->
+    <section id="competenze" class="card" aria-labelledby="competenze-h">
+      <h2 id="competenze-h" class="section-title">Competenze</h2>
+      <div class="grid" style="grid-template-columns:1fr 1fr">
+        <div>
+          <h3>Programmazione</h3>
+          <ul>
+            <li><strong>Proficient:</strong> Python, Java, SQL, MongoDB, HTML/CSS</li>
+            <li><strong>Experienced:</strong> JavaScript, C, C#, LaTeX</li>
+            <li><strong>Familiar:</strong> Java EE, PHP, Solidity, C++, Assembly, Shell</li>
+          </ul>
+          <h3>Librerie & Framework</h3>
+          <p class="meta">jQuery, Node.js, React</p>
+          <h3>Tool</h3>
+          <p class="meta">Git, Docker, WordPress</p>
+        </div>
+        <div>
+          <h3>Sistemi Operativi</h3>
+          <p class="meta">Windows · Linux · MacOS</p>
+          <h3>Lingue</h3>
+          <ul>
+            <li>Italiano — Madrelingua</li>
+            <li>Inglese — B2 (Cambridge)</li>
+          </ul>
+          <h3>Certificazioni</h3>
+          <p class="meta">Richi Entrepreneurs 2023 · SEIUNISA Innovator 2023 · RobotCup Participation 2019</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer">
+      <div class="footer-bar">
+        <span></span>
+        <span class="footer-center">© <span id="year"></span> Matteo Cicalese. Custom Website.</span>
+        <a href="#inizio" class="footer-right back-to-top" aria-label="Torna all'inizio">Torna su ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
