@@ -55,6 +55,9 @@ permalink: /
       margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
       background:var(--bg); color:var(--fg); line-height:1.6;
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+
+      /* Sticky footer */
+      min-height:100svh; display:flex; flex-direction:column;
     }
     img{max-width:100%; height:auto; display:block}
     a{color:inherit}
@@ -78,7 +81,7 @@ permalink: /
     nav a{color:var(--muted); text-decoration:none; padding:.4rem .6rem; border-radius:.6rem;}
     nav a:hover, nav a:focus{color:var(--fg); outline:2px solid var(--ring)}
 
-    main{padding-top:1rem}
+    main{padding-top:1rem; flex:1} /* prende lo spazio verticale disponibile */
     main section + section{ margin-top: 1.5rem; }
 
     .grid{display:grid; gap:1.1rem}
@@ -102,7 +105,19 @@ permalink: /
     .list .item:last-child { border-bottom: none; padding-bottom: 0; }
     .meta{color:var(--muted); font-size:.95rem}
 
-    .footer{margin:3rem 0 2rem; color:var(--muted); font-size:.95rem}
+    /* Footer nuovo */
+    footer{ margin-top:auto; background:transparent; }
+    .footer{ color:var(--muted); font-size:.95rem; padding:1.75rem 0 2rem; }
+    .footer-bar{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:.75rem;
+    }
+    .footer-center{ justify-self:center; text-align:center; }
+    .footer-right{ justify-self:end; }
+    .back-to-top{ color:var(--muted); text-decoration:none; border:1px dashed var(--border); padding:.35rem .6rem; border-radius:.6rem; }
+    .back-to-top:hover{ color:var(--fg); border-color:var(--fg); }
 
     .section-nav{display:flex; flex-wrap:wrap; gap:.4rem}
     .section-nav a{border:1px solid var(--border); border-radius:.6rem; padding:.35rem .6rem; color:var(--muted); text-decoration:none}
@@ -114,7 +129,7 @@ permalink: /
     *{word-wrap:break-word; overflow-wrap:break-word}
 
     @media print{
-      header, .section-nav, .footer, .cta{display:none}
+      header, .section-nav, footer, .cta{display:none}
       .card{border:0; background:transparent; padding:0; box-shadow:none}
       body{background:white; color:black}
     }
@@ -155,7 +170,7 @@ permalink: /
       font-weight:600;
     }
     .hero .underline{
-      width:min(320px, 60%);   /* un po' più larga */
+      width:min(320px, 60%);
       height:3px;
       margin:.6rem auto 0;
       border-radius:999px;
@@ -203,6 +218,23 @@ permalink: /
       border-color:rgba(16,185,129,.35);
       color:var(--success);
       font-weight:700;
+    }
+
+    /* === NUOVO: stile titoli dei riquadri (h2) === */
+    .section-title{
+      display:flex; align-items:center; gap:.75rem;
+      font-weight:800; letter-spacing:.2px; margin:0 0 1rem 0;
+    }
+    .section-title::before{
+      content:""; width:.9rem; height:.9rem; border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, var(--accent-2), var(--accent));
+      box-shadow: 0 0 0 6px var(--ring), 0 0 20px rgba(11,114,255,.25);
+      flex:0 0 auto;
+    }
+    .section-title::after{
+      content:""; height:2px; border-radius:999px; flex:1 1 auto;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity:.5;
     }
   </style>
 
@@ -260,7 +292,7 @@ permalink: /
 
     <!-- ESPERIENZE -->
     <section id="esperienze" class="card" aria-labelledby="esperienze-h">
-      <h2 id="esperienze-h">Esperienze</h2>
+      <h2 id="esperienze-h" class="section-title">Esperienze</h2>
       <div class="list">
         <div class="item">
           <div class="with-badge">
@@ -290,7 +322,7 @@ permalink: /
 
     <!-- STUDI -->
     <section id="studi" class="card" aria-labelledby="studi-h">
-      <h2 id="studi-h">Titoli di studio</h2>
+      <h2 id="studi-h" class="section-title">Titoli di studio</h2>
       <div class="list">
         <div class="item">
           <div class="with-badge">
@@ -315,7 +347,7 @@ permalink: /
 
     <!-- PROGETTI -->
     <section id="progetti" class="card" aria-labelledby="progetti-h">
-      <h2 id="progetti-h">Progetti</h2>
+      <h2 id="progetti-h" class="section-title">Progetti</h2>
       <div class="list">
         <div class="item">
           <h3>Medicare · Project Manager</h3>
@@ -337,7 +369,7 @@ permalink: /
 
     <!-- COMPETENZE -->
     <section id="competenze" class="card" aria-labelledby="competenze-h">
-      <h2 id="competenze-h">Competenze</h2>
+      <h2 id="competenze-h" class="section-title">Competenze</h2>
       <div class="grid" style="grid-template-columns:1fr 1fr">
         <div>
           <h3>Programmazione</h3>
@@ -367,7 +399,7 @@ permalink: /
 
     <!-- CONTATTI -->
     <section id="contatti" class="card" aria-labelledby="contatti-h">
-      <h2 id="contatti-h">Contatti</h2>
+      <h2 id="contatti-h" class="section-title">Contatti</h2>
       <p>
         <a class="btn btn-outline" href="mailto:matteocicalese01@gmail.com">matteocicalese01@gmail.com</a>
         <a class="btn btn-outline" href="tel:+393928139527">+39 392 813 9527</a>
@@ -375,11 +407,18 @@ permalink: /
       </p>
       <p class="meta">Disponibile a viaggi e trasferimenti.</p>
     </section>
-
-    <p class="footer">© <span id="year"></span> Matteo Cicalese. Custom Website.
-      <a href="#inizio" class="meta" style="margin-left:.5rem">Torna su ↑</a>
-    </p>
   </main>
+
+  <!-- FOOTER nuovo, centrato con "Torna su" a destra -->
+  <footer>
+    <div class="container footer">
+      <div class="footer-bar">
+        <span><!-- colonna sinistra vuota per simmetria --></span>
+        <span class="footer-center">© <span id="year"></span> Matteo Cicalese. Custom Website.</span>
+        <a href="#inizio" class="footer-right back-to-top" aria-label="Torna all'inizio">Torna su ↑</a>
+      </div>
+    </div>
+  </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
