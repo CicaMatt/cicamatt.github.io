@@ -116,6 +116,7 @@ permalink: /
     .back-to-top{ color:var(--muted); text-decoration:none; border:1px dashed var(--border); padding:.35rem .6rem; border-radius:.6rem; }
     .back-to-top:hover{ color:var(--fg); border-color:var(--fg); }
 
+    /* Responsive footer */
     @media (max-width: 560px){
       .footer-bar{
         grid-template-columns: 1fr;
@@ -191,7 +192,7 @@ permalink: /
     .btn-ghost{ background: transparent; color:var(--muted); border-style:dashed; }
     .btn-ghost:hover{ color:var(--fg); border-color:var(--fg); }
 
-    /* --- BADGE / intestazioni item --- */
+    /* --- BADGE --- */
     .with-badge{
       display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap;
       margin:1rem 0 .25rem;
@@ -277,27 +278,27 @@ permalink: /
     }
     .project-year{ color:var(--muted); font-size:.95rem; }
 
-    /* === COMPETENZE — layout a due colonne con ancoraggio === */
+    /* === COMPETENZE — layout a due colonne solide === */
     .skills-grid{
       display:grid;
       gap:1rem;
       grid-template-columns: 1fr;
     }
     @media(min-width:920px){
-      .skills-grid{ grid-template-columns: repeat(2, 1fr); }
+      .skills-grid{
+        grid-template-columns: 1fr 1fr;
+        align-items:start;
+      }
+    }
+    .skills-col{
+      display:grid;
+      gap:1rem;
     }
     .skill-card{
       background:var(--bg);
       border:1px dashed var(--border);
       border-radius:.9rem;
       padding:1rem;
-    }
-    /* Colonne forzate su desktop */
-    .skill-card.left{ grid-column: 1; }
-    .skill-card.right{ grid-column: 1; }
-    @media(min-width:920px){
-      .skill-card.left{ grid-column: 1; }
-      .skill-card.right{ grid-column: 2; }
     }
     .skill-head{
       display:flex; align-items:center; gap:.5rem; margin-bottom:.5rem;
@@ -492,42 +493,48 @@ permalink: /
       <h2 id="competenze-h" class="section-title">Competenze</h2>
 
       <div class="skills-grid">
-        <!-- Colonna sinistra -->
-        <div class="skill-card left" aria-labelledby="prog-h">
-          <div class="skill-head" id="prog-h">🧩 Programmazione</div>
-          <ul class="skill-list">
-            <li><strong>Proficient:</strong> Python, Java, SQL, HTML/CSS, LaTeX</li>
-            <li><strong>Experienced:</strong> Java EE, C, C#, Solidity, MongoDB</li>
-            <li><strong>Familiar:</strong> JavaScript, jQuery, Node.js, PHP, C++, Shell</li>
-          </ul>
-        </div>
+        <!-- COLONNA SINISTRA -->
+        <div class="skills-col">
+          <div class="skill-card" aria-labelledby="prog-h">
+            <div class="skill-head" id="prog-h">🧩 Programmazione</div>
+            <ul class="skill-list">
+              <li><strong>Proficient:</strong> Python, Java, SQL, HTML/CSS, LaTeX</li>
+              <li><strong>Experienced:</strong> Java EE, C, C#, Solidity, MongoDB</li>
+              <li><strong>Familiar:</strong> JavaScript, jQuery, Node.js, PHP, C++, Shell</li>
+            </ul>
+          </div>
 
-        <div class="skill-card left" aria-labelledby="tool-h">
-          <div class="skill-head" id="tool-h">🛠️ Tool</div>
-          <div class="pill-row" aria-label="Strumenti">
-            <span class="pill">Git</span>
-            <span class="pill">Docker</span>
-            <span class="pill">WordPress</span>
+          <div class="skill-card" aria-labelledby="tool-h">
+            <div class="skill-head" id="tool-h">🛠️ Tool</div>
+            <div class="pill-row" aria-label="Strumenti">
+              <span class="pill">Git</span>
+              <span class="pill">Docker</span>
+              <span class="pill">WordPress</span>
+            </div>
+          </div>
+
+          <div class="skill-card" aria-labelledby="os-h">
+            <div class="skill-head" id="os-h">🖥️ Sistemi Operativi</div>
+            <p class="meta" style="margin:.2rem 0 0 0;">Windows · Linux · MacOS</p>
           </div>
         </div>
 
-        <div class="skill-card left" aria-labelledby="os-h">
-          <div class="skill-head" id="os-h">🖥️ Sistemi Operativi</div>
-          <p class="meta" style="margin:.2rem 0 0 0;">Windows · Linux · MacOS</p>
-        </div>
+        <!-- COLONNA DESTRA -->
+        <div class="skills-col">
+          <div class="skill-card" aria-labelledby="lang-h">
+            <div class="skill-head" id="lang-h">🌍 Lingue</div>
+            <ul class="skill-list">
+              <li>Italiano — Madrelingua</li>
+              <li>Inglese — B2 (Cambridge)</li>
+            </ul>
+          </div>
 
-        <!-- Colonna destra -->
-        <div class="skill-card right" aria-labelledby="lang-h">
-          <div class="skill-head" id="lang-h">🌍 Lingue</div>
-          <ul class="skill-list">
-            <li>Italiano — Madrelingua</li>
-            <li>Inglese — B2 (Cambridge)</li>
-          </ul>
-        </div>
-
-        <div class="skill-card right" aria-labelledby="cert-h">
-          <div class="skill-head" id="cert-h">🏅 Certificazioni</div>
-          <p class="meta" style="margin:.2rem 0 0 0;">Richi Entrepreneurs 2023 · SEIUNISA Innovator 2023 · RobotCup Participation 2019</p>
+          <div class="skill-card" aria-labelledby="cert-h">
+            <div class="skill-head" id="cert-h">🏅 Certificazioni</div>
+            <p class="meta" style="margin:.2rem 0 0 0;">
+              Richi Entrepreneurs 2023 · SEIUNISA Innovator 2023 · RobotCup Participation 2019
+            </p>
+          </div>
         </div>
       </div>
     </section>
