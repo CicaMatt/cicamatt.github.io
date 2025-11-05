@@ -62,9 +62,7 @@ permalink: /
     /* Typography */
     :where(h1,h2,h3,h4){line-height:1.15}
     :where(h1){font-size:clamp(2rem, 3.2vw + 1rem, 3rem); margin:0}
-    /* H2 leggermente più grandi */
     :where(h2){font-size:clamp(1.25rem, 1.2vw + 1rem, 1.65rem); margin:1.75rem 0 1rem}
-    /* H3 più grandi */
     :where(h3){font-size:clamp(1.15rem, 0.9vw + 1rem, 1.35rem); margin:1rem 0 .5rem}
     p, li{max-width:75ch}
     ul{padding-left:1.2rem}
@@ -118,7 +116,6 @@ permalink: /
     .back-to-top{ color:var(--muted); text-decoration:none; border:1px dashed var(--border); padding:.35rem .6rem; border-radius:.6rem; }
     .back-to-top:hover{ color:var(--fg); border-color:var(--fg); }
 
-    /* Responsive: su schermi stretti si impila mantenendo allineamenti puliti */
     @media (max-width: 560px){
       .footer-bar{
         grid-template-columns: 1fr;
@@ -280,7 +277,7 @@ permalink: /
     }
     .project-year{ color:var(--muted); font-size:.95rem; }
 
-    /* === COMPETENZE — nuova impaginazione === */
+    /* === COMPETENZE — layout a due colonne con ancoraggio === */
     .skills-grid{
       display:grid;
       gap:1rem;
@@ -294,6 +291,13 @@ permalink: /
       border:1px dashed var(--border);
       border-radius:.9rem;
       padding:1rem;
+    }
+    /* Colonne forzate su desktop */
+    .skill-card.left{ grid-column: 1; }
+    .skill-card.right{ grid-column: 1; }
+    @media(min-width:920px){
+      .skill-card.left{ grid-column: 1; }
+      .skill-card.right{ grid-column: 2; }
     }
     .skill-head{
       display:flex; align-items:center; gap:.5rem; margin-bottom:.5rem;
@@ -483,13 +487,13 @@ permalink: /
       </div>
     </section>
 
-    <!-- COMPETENZE (nuovo layout) -->
+    <!-- COMPETENZE (layout aggiornato) -->
     <section id="competenze" class="card" aria-labelledby="competenze-h">
       <h2 id="competenze-h" class="section-title">Competenze</h2>
-    
+
       <div class="skills-grid">
-        <!-- Colonna SINISTRA: Programmazione, Tool, Sistemi Operativi -->
-        <div class="skill-card" aria-labelledby="prog-h">
+        <!-- Colonna sinistra -->
+        <div class="skill-card left" aria-labelledby="prog-h">
           <div class="skill-head" id="prog-h">🧩 Programmazione</div>
           <ul class="skill-list">
             <li><strong>Proficient:</strong> Python, Java, SQL, HTML/CSS, LaTeX</li>
@@ -497,18 +501,8 @@ permalink: /
             <li><strong>Familiar:</strong> JavaScript, jQuery, Node.js, PHP, C++, Shell</li>
           </ul>
         </div>
-    
-        <!-- Colonna DESTRA: Librerie & Framework -->
-        <div class="skill-card" aria-labelledby="libs-h">
-          <div class="skill-head" id="libs-h">📦 Librerie &amp; Framework</div>
-          <p class="dim" style="margin:0 0 .25rem 0">Stack utilizzato</p>
-          <div class="pill-row" aria-label="Librerie e framework">
-            <span class="pill"></span>
-          </div>
-        </div>
-    
-        <!-- Colonna SINISTRA: Tool -->
-        <div class="skill-card" aria-labelledby="tool-h">
+
+        <div class="skill-card left" aria-labelledby="tool-h">
           <div class="skill-head" id="tool-h">🛠️ Tool</div>
           <div class="pill-row" aria-label="Strumenti">
             <span class="pill">Git</span>
@@ -516,30 +510,27 @@ permalink: /
             <span class="pill">WordPress</span>
           </div>
         </div>
-    
-        <!-- Colonna DESTRA: Lingue (spostata prima dei SO per allineare le colonne) -->
-        <div class="skill-card" aria-labelledby="lang-h">
+
+        <div class="skill-card left" aria-labelledby="os-h">
+          <div class="skill-head" id="os-h">🖥️ Sistemi Operativi</div>
+          <p class="meta" style="margin:.2rem 0 0 0;">Windows · Linux · MacOS</p>
+        </div>
+
+        <!-- Colonna destra -->
+        <div class="skill-card right" aria-labelledby="lang-h">
           <div class="skill-head" id="lang-h">🌍 Lingue</div>
           <ul class="skill-list">
             <li>Italiano — Madrelingua</li>
             <li>Inglese — B2 (Cambridge)</li>
           </ul>
         </div>
-    
-        <!-- Colonna SINISTRA: Sistemi Operativi -->
-        <div class="skill-card" aria-labelledby="os-h">
-          <div class="skill-head" id="os-h">🖥️ Sistemi Operativi</div>
-          <p class="meta" style="margin:.2rem 0 0 0;">Windows · Linux · MacOS</p>
-        </div>
-    
-        <!-- Colonna DESTRA: Certificazioni -->
-        <div class="skill-card" aria-labelledby="cert-h">
+
+        <div class="skill-card right" aria-labelledby="cert-h">
           <div class="skill-head" id="cert-h">🏅 Certificazioni</div>
           <p class="meta" style="margin:.2rem 0 0 0;">Richi Entrepreneurs 2023 · SEIUNISA Innovator 2023 · RobotCup Participation 2019</p>
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- FOOTER -->
